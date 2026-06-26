@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vintechglobals.com/sitemap.xml
