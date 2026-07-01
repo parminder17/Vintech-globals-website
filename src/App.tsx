@@ -218,37 +218,37 @@ function Services() {
   const services = [
     {
       icon: <Search size={32} />,
-      title: 'AI SEO Optimization',
-      description: 'Dominate search rankings with our proven AI SEO strategies. We optimize your website for organic visibility on AI tools like ChatGPT, Claude, & others, driving qualified traffic and long-term growth.',
-      features: ['Keyword Research', 'Technical SEO', 'Link Building', 'Content Strategy'],
+      title: 'AI SEO & GEO Optimization',
+      description: 'Future-proof your organic visibility. We optimize your digital footprint for Generative Engine Optimization (GEO), ensuring your brand ranks as the top recommended answer on AI platforms like ChatGPT, Gemini, and Claude.',
+      features: ['Generative Engine Optimization', 'AI Search Visibility Audit', 'Semantic Content Strategy', 'Technical Schema Architecture'],
       color: 'from-gold-500/20 to-transparent',
     },
     {
       icon: <Share2 size={32} />,
       title: 'Social Media Marketing',
-      description: 'Build a powerful brand presence across all social platforms. We create engaging content that resonates with your audience and drives conversions.',
-      features: ['Content Creation', 'Content Calendar', 'Community Management', 'Influencer Outreach', 'Analytics Tracking'],
+      description: 'Build an authoritative brand narrative across all social channels. We engineer high-retention content and automated multi-platform workflows that turn casual scrollers into loyal community advocates.',
+      features: ['Data-Driven Content Creation', 'Cross-Platform Workflows', 'Community & Brand Management', 'Performance-Led Influencer Outreach'],
       color: 'from-blue-500/20 to-transparent',
     },
     {
       icon: <Globe size={32} />,
-      title: 'Website Development',
-      description: 'Beautiful, high-performing websites that convert visitors into customers. We build responsive, AI SEO-friendly websites tailored to your brand.',
-      features: ['Responsive Design', 'E-commerce', 'Custom Solutions', 'CMS Integration'],
+      title: 'Conversion-First Web Development',
+      description: 'Stunning, hyper-fast, and secure digital storefronts built for maximum conversion. Every structure is natively optimized for AI crawlers, responsive behaviors, and seamless UX/UI frameworks.',
+      features: ['Responsive UI/UX Architecture', 'AI-Crawler Optimization', 'Headless CMS & E-commerce', 'Core Web Vitals Performance'],
       color: 'from-emerald-500/20 to-transparent',
     },
     {
       icon: <BarChart3 size={32} />,
-      title: 'Google Ads',
-      description: 'Maximize ROI with data-driven Google Ads campaigns. Our certified experts manage your PPC to deliver leads and sales at the lowest cost.',
-      features: ['Search Campaigns', 'Display Network', 'Shopping Ads', 'Remarketing'],
+      title: 'Precision Google Ads (PPC)',
+      description: 'Eliminate budget waste with predictive intent targeting. Our certified specialists deploy high-intent search, dynamic display, and programmatic shopping campaigns that guarantee scalable pipeline growth.',
+      features: ['Intent-Based Search Campaigns', 'Programmatic Shopping & Performance Max', 'Predictive Keyword Modeling', 'Advanced Retargeting Funnels'],
       color: 'from-red-500/20 to-transparent',
     },
     {
       icon: <Megaphone size={32} />,
-      title: 'Meta Ads',
-      description: 'Reach billions of users on Facebook, Instagram, and WhatsApp. We create targeted campaigns that convert scrollers into customers.',
-      features: ['Facebook Ads', 'Instagram Ads', 'Audience Targeting', 'Creative Testing'],
+      title: 'High-ROI Meta & Omni-Channel Ads',
+      description: 'Scale custom audience patterns across Facebook, Instagram, and WhatsApp. We mix algorithmic audience modeling with rigorous creative testing to lower your CAC and amplify total revenue.',
+      features: ['Algorithmic Audience Modeling', 'Dynamic Creative Optimization (DCO)', 'Full-Funnel Social Ads Strategy', 'Multi-Touch Attribution Analytics'],
       color: 'from-purple-500/20 to-transparent',
     },
   ];
@@ -268,11 +268,11 @@ function Services() {
             Services We <span className="gradient-text">Offer</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-base">
-            Comprehensive AI-driven digital marketing solutions tailored to accelerate your business growth.
+            We merge advanced artificial intelligence architectures with proven digital marketing strategies to drive measurable enterprise scale.
           </p>
         </div>
 
-        {/* 5 Cards Balanced Grid */}
+        {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <div
@@ -291,7 +291,7 @@ function Services() {
                 </p>
               </div>
 
-              {/* Displaying Features with CheckCircle2 */}
+              {/* Displaying Features */}
               <div className="border-t border-gray-800/60 pt-4 mt-auto space-y-2">
                 {service.features.map((feature) => (
                   <div key={feature} className="flex items-center gap-2 text-sm text-gray-500">
@@ -307,8 +307,7 @@ function Services() {
       </div>
     </section>
   );
-}
-// ── Why Choose Us ──
+}// ── Why Choose Us ──
 function WhyChooseUs() {
   const reasons = [
     { icon: <Target size={28} />, title: 'Results-Driven', desc: 'We focus on metrics that matter — leads, revenue, and ROI.' },
