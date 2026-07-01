@@ -309,82 +309,80 @@ function Services() {
   );
 }// ── Why Choose Us ──
 function WhyChooseUs() {
-  const reasons = [
-    { icon: <Target size={28} />, title: 'Results-Driven', desc: 'We focus on metrics that matter — leads, revenue, and ROI.' },
-    { icon: <Users size={28} />, title: 'Expert Team', desc: 'Certified professionals with 12+ years of combined experience.' },
-    { icon: <Rocket size={28} />, title: 'Fast Execution', desc: 'Agile workflows that get your campaigns live in record time.' },
-    { icon: <Shield size={28} />, title: 'Transparent Reporting', desc: 'Real-time dashboards and monthly reports so you always know where you stand.' },
-    { icon: <Zap size={28} />, title: 'Custom Strategies', desc: 'No cookie-cutter plans. Every strategy is tailored to your unique goals.' },
-    { icon: <Award size={28} />, title: 'Proven Track Record', desc: '500+ successful campaigns across 20+ industries worldwide.' },
+  const stats = [
+    { value: '10x+', label: 'Average Client ROI', description: 'Driven by predictive intent mapping and GEO tactics.' },
+    { value: '94%', label: 'Retention Rate', description: 'Long-term enterprise partnerships built on pure performance.' },
+    { value: '24/7', label: 'AI Optimization', description: 'Continuous algorithmic testing running behind your campaigns.' },
   ];
+
+  const pillars = [
+    {
+      title: 'Algorithmic Precision Over Guesswork',
+      description: 'We don’t rely on outdated marketing templates. Our strategies are built using semantic data structures and predictive audience modeling that out-compete standard frameworks.'
+    },
+    {
+      title: 'Natively Built for the AI Era',
+      description: 'While other agencies are still catching up to ChatGPT and Gemini, we design your entire digital infrastructure to be natively indexed and recommended by generative engines.'
+    },
+    {
+      title: 'Full-Funnel Omni-Channel Mastery',
+      description: 'From hyper-targeted Meta ad funnels to conversion-first web layouts, we synchronise every single touchpoint to lower your CAC and optimize your lifetime value.'
+    }
+  ];
+
   return (
-    <section id="why-us" className="py-24 relative">
-      <div className="section-divider mb-24" />
+    <section id="why-choose-us" className="py-24 relative border-t border-gray-900 bg-black/30">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="animate-on-scroll">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <Star size={16} className="text-gold-400" />
-              <span className="text-sm text-gold-400 uppercase tracking-[0.2em]">Why Choose Us</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* Left Column - Heading & Numbers */}
+          <div className="lg:col-span-5 space-y-8 animate-on-scroll">
+            <div>
+              <span className="text-xs font-semibold tracking-widest text-gold-500 uppercase block mb-3">Why Partner With Us</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight">
+                Built to Scale in a <span className="gradient-text">Post-Search</span> World
+              </h2>
+              <p className="text-gray-400 mt-4 leading-relaxed">
+                Traditional marketing channels are fracturing. Vintech Globals deploys advanced optimization techniques designed to make your brand the definitive answer across every modern search platform and network.
+              </p>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-              The <span className="gradient-text">Vintech</span> Difference
-            </h2>
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              We are not just another agency. We are your strategic partner committed to your success. 
-              Our approach combines creativity with data-driven precision to deliver exceptional results.
-            </p>
-            <div className="space-y-6">
-              {reasons.map((reason, i) => (
-                <div key={i} className="flex items-start gap-4 animate-on-scroll delay-100">
-                  <div className="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center shrink-0 text-gold-400">
-                    {reason.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-1">{reason.title}</h4>
-                    <p className="text-sm text-gray-400">{reason.desc}</p>
-                  </div>
+
+            {/* Stat Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6 pt-4">
+              {stats.map((stat, idx) => (
+                <div key={idx} className="border-l-2 border-gold-500/40 pl-4 py-2 group hover:border-gold-500 transition-colors duration-300">
+                  <div className="font-display text-3xl font-bold text-white group-hover:text-gold-400 transition-colors">{stat.value}</div>
+                  <div className="text-sm font-semibold text-gray-300 mt-1">{stat.label}</div>
+                  <div className="text-xs text-gray-500 mt-0.5">{stat.description}</div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="animate-on-scroll delay-200">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gold-500/10 rounded-3xl blur-2xl" />
-              <div className="relative glass-card rounded-3xl p-8 gold-glow">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-6 rounded-2xl bg-white/5 border border-white/5">
-                    <TrendingUp size={32} className="text-gold-400 mx-auto mb-3" />
-                    <p className="font-display text-3xl font-bold text-white mb-1">
-                      <Counter target={340} suffix="%" />
-                    </p>
-                    <p className="text-sm text-gray-500">Avg. Traffic Growth</p>
+
+          {/* Right Column - Premium Feature Cards */}
+          <div className="lg:col-span-7 space-y-6">
+            {pillars.map((pillar, idx) => (
+              <div 
+                key={idx} 
+                className={`p-6 rounded-2xl border border-gray-800/80 bg-gradient-to-r from-gray-950 to-black/40 hover:border-gold-500/30 transition-all duration-300 group animate-on-scroll delay-${(idx + 1) * 100}`}
+              >
+                <div className="flex gap-4 items-start">
+                  <div className="w-8 h-8 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400 font-display text-sm font-bold mt-0.5 group-hover:bg-gold-500 group-hover:text-black transition-all duration-300">
+                    0{idx + 1}
                   </div>
-                  <div className="text-center p-6 rounded-2xl bg-white/5 border border-white/5">
-                    <MousePointerClick size={32} className="text-gold-400 mx-auto mb-3" />
-                    <p className="font-display text-3xl font-bold text-white mb-1">
-                      <Counter target={85} suffix="%" />
+                  <div className="space-y-2">
+                    <h3 className="font-display text-lg font-bold text-white group-hover:text-gold-400 transition-colors">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      {pillar.description}
                     </p>
-                    <p className="text-sm text-gray-500">Conversion Lift</p>
-                  </div>
-                  <div className="text-center p-6 rounded-2xl bg-white/5 border border-white/5">
-                    <LineChart size={32} className="text-gold-400 mx-auto mb-3" />
-                    <p className="font-display text-3xl font-bold text-white mb-1">
-                      <Counter target={12} suffix="x" />
-                    </p>
-                    <p className="text-sm text-gray-500">Avg. ROAS</p>
-                  </div>
-                  <div className="text-center p-6 rounded-2xl bg-white/5 border border-white/5">
-                    <Eye size={32} className="text-gold-400 mx-auto mb-3" />
-                    <p className="font-display text-3xl font-bold text-white mb-1">
-                      <Counter target={50} suffix="M+" />
-                    </p>
-                    <p className="text-sm text-gray-500">Impressions Generated</p>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
+
         </div>
       </div>
     </section>
