@@ -474,8 +474,6 @@ function Process() {
   );
 }
 // ── Results / Portfolio Section ──
-import { useState, useEffect } from 'react';
-
 function Results() {
   const projects = [
     {
@@ -514,15 +512,13 @@ function Results() {
     }
   ];
 
-  // State to trigger the animations once component mounts
   const [animated, setAnimated] = useState(false);
   const [counts, setCounts] = useState(projects.map(() => 0));
 
   useEffect(() => {
     setAnimated(true);
     
-    // Smooth number counting effect
-    const duration = 1500; // 1.5 seconds animation
+    const duration = 1500; 
     const steps = 50;
     const stepTime = duration / steps;
     let step = 0;
@@ -534,7 +530,6 @@ function Results() {
           const target = proj.targetMetric;
           const current = (target / steps) * step;
           if (step >= steps) return target;
-          // Handle floating values nicely for decimals like 4.8
           return target % 1 === 0 ? Math.floor(current) : parseFloat(current.toFixed(1));
         })
       );
@@ -551,8 +546,8 @@ function Results() {
     <section id="portfolio" className="py-24 relative border-t border-gray-900 bg-black/30">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Section Header with Clean Tech Fonts */}
-        <div className="text-center mb-16 animate-on-scroll">
+        {/* Section Header */}
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-3 justify-center w-full">
             <span className="text-xs font-semibold tracking-widest text-gold-500 uppercase">↗ Proven Results</span>
           </div>
@@ -564,7 +559,7 @@ function Results() {
           </p>
         </div>
 
-        {/* 4-Card Grid Framework */}
+        {/* 4-Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, idx) => (
             <div 
@@ -582,7 +577,6 @@ function Results() {
                 </div>
                 
                 <div className="text-right">
-                  {/* Dynamic Incrementing Counter */}
                   <div className="font-display text-lg md:text-xl font-extrabold text-gold-400 tracking-tight">
                     {project.extra && <span className="text-gray-400 text-sm font-normal">{project.extra}</span>}
                     {project.prefix && project.prefix}
@@ -595,7 +589,7 @@ function Results() {
                 </div>
               </div>
 
-              {/* Smooth Animated Progress Bar */}
+              {/* Progress Bar */}
               <div className="w-full bg-gray-900/60 h-[3px] rounded-full mt-8 overflow-hidden">
                 <div 
                   className="h-full bg-gradient-to-r from-gold-600 to-gold-400 rounded-full group-hover:brightness-125 transition-all duration-[1500ms] ease-out" 
@@ -610,8 +604,6 @@ function Results() {
     </section>
   );
 }
-
-export default Results;
 // ── Testimonials Section ──
 function Testimonials() {
   const testimonials = [
