@@ -156,8 +156,8 @@ function Hero() {
           <span className="text-sm text-gold-300">AI SEO • Google Ads • Meta Ads • Websites</span>
         </div>
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-6 animate-slide-up text-shadow">
-          AI-Powered Digital Marketing Agency <br />
-          <span className="gradient-text"> That Drives Real Business Growth</span>
+          AI-Powered <br />
+          <span className="gradient-text"> Digital Marketing Agency</span>
         </h1>
         <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 animate-slide-up delay-100 leading-relaxed">
           Vintech Globals helps businesses generate more qualified leads through AI SEO, Google Ads, Meta Ads, Social Media Marketing and high-converting websites.
