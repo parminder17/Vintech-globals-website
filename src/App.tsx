@@ -710,7 +710,23 @@ function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
 
     e.preventDefault();
+// Tuhada Final Verified Web App URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyNhB0cgJRkC7SyqA1seoxPwgUYR0F_jTyX1XfvNoP1X5TBwPm00uFoFHP06PjuNXdW/exec';
+    
+    const params = new URLSearchParams();
+    params.append('name', formState.name);
+    params.append('email', formState.email);
+    params.append('phone', formState.phone);
+    params.append('service', formState.service);
+    params.append('message', formState.message);
 
+    try {
+      await fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: params
+      });
+      
     setSubmitted(true);
 
     setTimeout(() => setSubmitted(false), 3000);
