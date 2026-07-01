@@ -393,25 +393,25 @@ function WhyChooseUs() {
 function Process() {
   const steps = [
     {
-      phase: '01',
+      phase: 'Phase 1',
       title: 'Deep Semantic Audit',
       subtitle: 'Discovery & Vector Mapping',
       description: 'We don’t just look at keywords. We analyze how generative AI nodes and user intent patterns view your brand ecosystem, identifying indexing gaps across the digital landscape.'
     },
     {
-      phase: '02',
+      phase: 'Phase 2',
       title: 'Funnel Engineering',
       subtitle: 'Infrastructure & UI/UX Build',
       description: 'Our team engineers high-retention landing pages and schema architecture natively optimized for both high-converting human traffic and AI search engine web crawlers.'
     },
     {
-      phase: '03',
+      phase: 'Phase 3',
       title: 'Algorithmic Deployment',
       subtitle: 'Omni-Channel Activation',
       description: 'We launch precision-targeted Meta, Google, and LinkedIn funnels synced with programmatic audience triggers to capture high-intent buyers at the lowest possible CAC.'
     },
     {
-      phase: '04',
+      phase: 'Phase 4',
       title: 'Continuous Scaling',
       subtitle: 'Attribution & Optimization',
       description: 'Through constant multi-touch data attribution and creative split-testing, we dynamically scale winning assets to maximize your enterprise revenue and market share.'
@@ -444,13 +444,10 @@ function Process() {
               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold-500/0 to-transparent group-hover:via-gold-500/40 transition-all duration-500 rounded-t-2xl" />
               
               <div className="space-y-4">
-                {/* Phase Number & Status */}
+                {/* Phase Number Header */}
                 <div className="flex justify-between items-center">
-                  <span className="font-display text-4xl font-extrabold text-gray-900 group-hover:text-gold-500/10 transition-colors duration-500 select-none">
+                  <span className="font-display text-2xl font-extrabold text-gray-800 group-hover:text-gold-500/20 transition-colors duration-500 select-none tracking-tight">
                     {step.phase}
-                  </span>
-                  <span className="text-[10px] uppercase tracking-widest text-gold-500/60 font-semibold px-2 py-0.5 bg-gold-500/5 rounded-full border border-gold-500/10">
-                    Phase {step.phase}
                   </span>
                 </div>
 
