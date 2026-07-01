@@ -700,17 +700,15 @@ function CTASection() {
 }
 
 function Contact() {
-
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', service: '', message: '' });
-
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-
-
-  const handleSubmit = (e: React.FormEvent) => {
-
+  // 'async' keyword add kita taaki await sahi kamm kare
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-// Tuhada Final Verified Web App URL
+    setLoading(true);
+
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyNhB0cgJRkC7SyqA1seoxPwgUYR0F_jTyX1XfvNoP1X5TBwPm00uFoFHP06PjuNXdW/exec';
     
     const params = new URLSearchParams();
@@ -727,286 +725,118 @@ function Contact() {
         body: params
       });
       
-    setSubmitted(true);
-
-    setTimeout(() => setSubmitted(false), 3000);
-
+      setSubmitted(true);
+      setFormState({ name: '', email: '', phone: '', service: '', message: '' });
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (error) {
+      console.error('Error:', error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-
-
   return (
-
     <section id="contact" className="py-24 relative border-t border-gray-900/60 bg-black/10">
-
       <div className="max-w-7xl mx-auto px-6">
-
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-
           
-
           {/* Info Side */}
-
           <div className="animate-on-scroll space-y-8">
-
             <div className="space-y-4">
-
               <div className="inline-flex items-center gap-2">
-
                 <Mail size={16} className="text-gold-400" />
-
                 <span className="text-xs font-semibold text-gold-500 uppercase tracking-widest">Get In Touch</span>
-
               </div>
-
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight">
-
                 Let’s Start a <span className="gradient-text">Conversation</span>
-
               </h2>
-
               <p className="text-gray-400 text-sm md:text-base leading-relaxed font-sans max-w-lg">
-
                 Have an enterprise scale infrastructure project or performance marketing pipeline in mind? Fill out the brief and our strategy team will align with you within 24 hours.
-
               </p>
-
             </div>
-
-
-
-            {/* Structured Contact Cards */}
 
             <div className="space-y-4 max-w-md">
-
               {[
-
                 { label: 'Phone', value: '+91 8847576747', icon: <Phone size={18} /> },
-
                 { label: 'Email', value: 'info@vintechglobals.com', icon: <Mail size={18} /> },
-
                 { label: 'Address', value: 'IT TOWER, SECTOR 74, PHASE 8B, MOHALI, PUNJAB', icon: <MapPin size={18} /> }
-
               ].map((item, i) => (
-
                 <div key={i} className="flex items-center gap-4 p-4 rounded-xl border border-gray-900 bg-gray-950/40">
-
                   <div className="w-10 h-10 rounded-lg bg-gold-500/5 border border-gold-500/10 flex items-center justify-center text-gold-400 shrink-0">
-
                     {item.icon}
-
                   </div>
-
                   <div>
-
                     <p className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">{item.label}</p>
-
                     <p className="text-white text-sm font-medium mt-0.5 tracking-wide">{item.value}</p>
-
                   </div>
-
                 </div>
-
               ))}
-
             </div>
-
           </div>
-
-
 
           {/* Form Side */}
-
           <div className="animate-on-scroll delay-200">
-
             <div className="p-8 rounded-2xl border border-gray-900 bg-gradient-to-b from-gray-950/60 to-black/40 backdrop-blur-sm relative">
-
               
-
               {submitted ? (
-
                 <div className="text-center py-12 space-y-4">
-
                   <CheckCircle2 size={56} className="text-gold-400 mx-auto" />
-
                   <div>
-
                     <h3 className="font-display text-2xl font-bold text-white">Message Sent!</h3>
-
                     <p className="text-gray-400 text-sm mt-1">Our deployment engineers will be in touch shortly.</p>
-
                   </div>
-
                 </div>
-
               ) : (
-
                 <form onSubmit={handleSubmit} className="space-y-5">
-
                   <div className="grid sm:grid-cols-2 gap-5">
-
                     <div>
-
                       <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Name</label>
-
-                      <input
-
-                        type="text"
-
-                        required
-
-                        value={formState.name}
-
-                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm"
-
-                        placeholder="Your name"
-
-                      />
-
+                      <input type="text" required value={formState.name} onChange={(e) => setFormState({...formState, name: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm" placeholder="Your name" />
                     </div>
-
                     <div>
-
                       <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Email</label>
-
-                      <input
-
-                        type="email"
-
-                        required
-
-                        value={formState.email}
-
-                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm"
-
-                        placeholder="you@company.com"
-
-                      />
-
+                      <input type="email" required value={formState.email} onChange={(e) => setFormState({...formState, email: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm" placeholder="you@company.com" />
                     </div>
-
                   </div>
-
-
 
                   <div className="grid sm:grid-cols-2 gap-5">
-
                     <div>
-
                       <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Phone</label>
-
-                      <input
-
-                        type="tel"
-
-                        value={formState.phone}
-
-                        onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm"
-
-                        placeholder="+91 00000-00000"
-
-                      />
-
+                      <input type="tel" value={formState.phone} onChange={(e) => setFormState({...formState, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm" placeholder="+91 00000-00000" />
                     </div>
-
                     <div>
-
                       <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Service</label>
-
-                      <div className="relative">
-
-                        <select
-
-                          value={formState.service}
-
-                          onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm appearance-none cursor-pointer"
-
-                        >
-
-                          <option value="" className="bg-black text-gray-400">Select an architecture</option>
-
-                          <option value="seo" className="bg-gray-950 text-white">Generative Engine Optimization (GEO)</option>
-
-                          <option value="smm" className="bg-gray-950 text-white">Omni-Channel Scale & SMM</option>
-
-                          <option value="web" className="bg-gray-950 text-white">Conversion-First Development</option>
-
-                          <option value="ads" className="bg-gray-950 text-white">Programmatic Google & YouTube Ads</option>
-
-                          <option value="meta" className="bg-gray-950 text-white">High-Retention Meta Funnels</option>
-
-                          <option value="brand" className="bg-gray-950 text-white">Media & Influencer Promotions</option>
-
-                          <option value="other" className="bg-gray-950 text-white">Other Complex Ecosystems</option>
-
-                        </select>
-
-                        <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-500 text-xs">▼</div>
-
-                      </div>
-
+                      <select value={formState.service} onChange={(e) => setFormState({...formState, service: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm appearance-none cursor-pointer">
+                        <option value="" className="bg-black text-gray-400">Select an architecture</option>
+                        <option value="seo" className="bg-gray-950 text-white">Generative Engine Optimization (GEO)</option>
+                        <option value="smm" className="bg-gray-950 text-white">Omni-Channel Scale & SMM</option>
+                        <option value="web" className="bg-gray-950 text-white">Conversion-First Development</option>
+                        <option value="ads" className="bg-gray-950 text-white">Programmatic Google & YouTube Ads</option>
+                        <option value="meta" className="bg-gray-950 text-white">High-Retention Meta Funnels</option>
+                        <option value="brand" className="bg-gray-950 text-white">Media & Influencer Promotions</option>
+                        <option value="other" className="bg-gray-950 text-white">Other Complex Ecosystems</option>
+                      </select>
                     </div>
-
                   </div>
-
-
 
                   <div>
-
                     <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Project Scope Brief</label>
-
-                    <textarea
-
-                      rows={4}
-
-                      value={formState.message}
-
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors resize-none font-sans text-sm"
-
-                      placeholder="Tell us about your conversion metrics or tracking objectives..."
-
-                    />
-
+                    <textarea rows={4} value={formState.message} onChange={(e) => setFormState({...formState, message: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors resize-none font-sans text-sm" placeholder="Tell us about your conversion metrics..." />
                   </div>
 
-
-
-                  <button type="submit" className="btn-gold w-full py-4 rounded-xl text-sm font-semibold tracking-wide flex items-center justify-center gap-2 transition-transform duration-300 active:scale-[0.98]">
-
-                    Deploy Message
-
+                  <button disabled={loading} type="submit" className="btn-gold w-full py-4 rounded-xl text-sm font-semibold tracking-wide flex items-center justify-center gap-2 transition-transform duration-300 active:scale-[0.98]">
+                    {loading ? 'Deploying...' : 'Deploy Message'}
                     <ArrowRight size={16} />
-
                   </button>
-
                 </form>
-
               )}
-
             </div>
-
           </div>
-
-
-
         </div>
-
       </div>
-
     </section>
-
   );
-
 }
 // ── Footer ──
 function Footer() {
