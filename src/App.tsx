@@ -162,6 +162,18 @@ function Hero() {
         <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 animate-slide-up delay-100 leading-relaxed">
           Vintech Globals helps businesses generate more qualified leads through AI SEO, Google Ads, Meta Ads, Social Media Marketing and high-converting websites.
         </p>
+    
+        {/* 📍 START: LOCAL SEO & INDUSTRY SIGNALS HERE */}
+        <div className="text-center mb-8 animate-slide-up delay-150">
+          <p className="text-sm text-gray-400 flex items-center justify-center gap-1.5">
+            <span>📍</span> Serving Clients Across Mohali, Chandigarh, Punjab & India
+          </p>
+          <p className="text-xs font-semibold tracking-wider text-gold-300 uppercase mt-2">
+            Trusted by: Real Estate • Restaurants • Healthcare • Education • Coaching
+          </p>
+        </div>
+        {/* 📍 END: LOCAL SEO & INDUSTRY SIGNALS */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
           <a href="#contact" className="btn-gold px-8 py-4 rounded-full text-base flex items-center gap-2">
             Get Free Strategy Call
