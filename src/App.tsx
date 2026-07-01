@@ -477,8 +477,8 @@ function Process() {
 function Results() {
   const projects = [
     {
-      brand: 'Aether Fragrances',
-      category: 'E-commerce & Omni-Channel Ads',
+      brand: 'Music distribution',
+      category: 'Web Development & AI SEO',
       targetMetric: 340,
       suffix: '% Revenue Growth',
       duration: '6 months',
@@ -494,7 +494,7 @@ function Results() {
       progressWidth: '92%',
     },
     {
-      brand: 'Luminary Media Group',
+      brand: 'Maan Wholesale USA',
       category: 'Conversion-First Web Dev',
       targetMetric: 4.8,
       suffix: '% Conversion Rate',
@@ -503,7 +503,7 @@ function Results() {
       extra: '0.8s Load Time | '
     },
     {
-      brand: 'Vitonnix Markets',
+      brand: 'Real Estate USA',
       category: 'Full-Stack Performance Marketing',
       targetMetric: 450,
       suffix: '% Scaled Pipeline',
