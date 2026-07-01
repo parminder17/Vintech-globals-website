@@ -150,16 +150,20 @@ function Hero() {
       <div className="grid-pattern absolute inset-0 opacity-30 pointer-events-none" />
       <div className="absolute top-20 left-10 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
+      
       <div className="relative max-w-7xl mx-auto px-6 text-center pt-24">
+        
         <div className="animate-fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
           <Crown size={14} className="text-gold-400" />
           <span className="text-sm text-gold-300">AI SEO • Google Ads • Meta Ads • Websites</span>
         </div>
+        
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-6 animate-slide-up text-shadow">
           AI-Powered <br />
           <span className="gradient-text"> Digital Marketing Agency</span>
         </h1>
-       <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-6 animate-slide-up delay-100 leading-relaxed">
+        
+        <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-6 animate-slide-up delay-100 leading-relaxed">
           Vintech Globals helps businesses generate more qualified leads through AI SEO, Google Ads, Meta Ads, Social Media Marketing and high-converting websites.
         </p>
 
@@ -173,7 +177,6 @@ function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
           <a href="#contact" className="btn-gold px-8 py-4 rounded-full text-base flex items-center gap-2">
             Get Free Strategy Call
             <ArrowRight size={18} />
@@ -183,6 +186,7 @@ function Hero() {
             <ChevronRight size={18} />
           </a>
         </div>
+
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 animate-slide-up delay-300">
           {[
             { num: 500, label: 'Clients Served', suffix: '+' },
@@ -198,6 +202,7 @@ function Hero() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
