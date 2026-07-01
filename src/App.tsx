@@ -258,7 +258,7 @@ function Services() {
       <div className="section-divider mb-24" />
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Header Block with Sparkles and Scroll Animation */}
+        {/* Header Block */}
         <div className="text-center mb-16 animate-on-scroll">
           <div className="inline-flex items-center gap-2 mb-4">
             <Sparkles size={16} className="text-gold-400" />
@@ -272,11 +272,11 @@ function Services() {
           </p>
         </div>
 
-        {/* 5 Cards Layout with Glass Card Style */}
+        {/* 5 Cards Balanced Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
-            <div 
-              key={service.title} 
+            <div
+              key={service.title}
               className={`service-card glass-card rounded-2xl p-8 hover:bg-white/[0.05] border border-gray-800 bg-gradient-to-b ${service.color} hover:border-gold-500/50 transition-all duration-500 animate-on-scroll delay-${(i + 1) * 100} group flex flex-col justify-between`}
             >
               <div>
@@ -308,51 +308,6 @@ function Services() {
     </section>
   );
 }
-
-// ── Services Section ──
-    <section id="services" className="py-24 relative">
-      <div className="section-divider mb-24" />
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles size={16} className="text-gold-400" />
-            <span className="text-sm text-gold-400 uppercase tracking-[0.2em]">Our Expertise</span>
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            Services We <span className="gradient-text">Offer</span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Comprehensive ai driven digital marketing solutions tailored to accelerate your business growth
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <div
-              key={service.title}
-              className={`service-card glass-card rounded-2xl p-8 hover:bg-white/[0.05] transition-all duration-500 animate-on-scroll delay-${(i + 1) * 100} group`}
-            >
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 service-icon text-gold-400`}>
-                {service.icon}
-              </div>
-              <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                {service.description}
-              </p>
-              <div className="space-y-2">
-                {service.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-500">
-                    <CheckCircle2 size={14} className="text-gold-500" />
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-    </section>
-  );
-}
-
 // ── Why Choose Us ──
 function WhyChooseUs() {
   const reasons = [
