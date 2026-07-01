@@ -74,12 +74,12 @@ function Navigation() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   const navLinks = [
-    { label: 'Services', href: '#services' },
-    { label: 'Why Us', href: '#why-us' },
-    { label: 'Process', href: '#process' },
-    { label: 'Results', href: '#results' },
-    { label: 'Contact', href: '#contact' },
-  ];
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#why-us' },
+  { label: 'Blog', href: '/blog' }, // <--- Eh line add kar do!
+  { label: 'Results', href: '#results' },
+  { label: 'Contact', href: '#contact' },
+];
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
