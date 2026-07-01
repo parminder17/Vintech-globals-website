@@ -671,25 +671,23 @@ function Testimonials() {
 // ── CTA Section ──
 function CTASection() {
   return (
-    <section className="py-24 relative">
-      <div className="section-divider mb-24" />
+    <section className="py-24 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6">
         <div className="relative animate-on-scroll">
           <div className="absolute -inset-4 bg-gold-500/10 rounded-3xl blur-3xl" />
-          <div className="relative glass-card rounded-3xl p-12 md:p-16 text-center gold-glow border-gold-500/20">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+          <div className="relative rounded-3xl p-12 md:p-16 text-center border border-gold-500/10 bg-gradient-to-b from-gray-950/40 to-black/90 backdrop-blur-md">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
               Ready to <span className="gradient-text">Scale Your Business?</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Let us create a custom strategy that drives real results for your business. 
-              Schedule a free consultation with our experts today.
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-sm md:text-base leading-relaxed font-sans">
+              Let us engineer a custom architectural pipeline that transforms cold digital footprints into verifiable enterprise authority. Schedule a strategic consultation today.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#contact" className="btn-gold px-8 py-4 rounded-full text-base flex items-center gap-2 animate-pulse-glow">
+              <a href="#contact" className="btn-gold px-8 py-4 rounded-full text-base flex items-center gap-2 font-medium tracking-wide">
                 Get a Free Strategy Call
                 <ArrowRight size={18} />
               </a>
-              <a href="tel:+918847576747" className="btn-outline px-8 py-4 rounded-full text-base flex items-center gap-2">
+              <a href="tel:+918847576747" className="btn-outline px-8 py-4 rounded-full text-base flex items-center gap-2 font-medium text-white hover:text-gold-400 border-gray-800 hover:border-gold-500/30 transition-all">
                 <Phone size={18} />
                 Call Us Now
               </a>
@@ -705,145 +703,150 @@ function CTASection() {
 function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', service: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };
+
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="section-divider mb-24" />
+    <section id="contact" className="py-24 relative border-t border-gray-900/60 bg-black/10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div className="animate-on-scroll">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <Mail size={16} className="text-gold-400" />
-              <span className="text-sm text-gold-400 uppercase tracking-[0.2em]">Get In Touch</span>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Info Side */}
+          <div className="animate-on-scroll space-y-8">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2">
+                <Mail size={16} className="text-gold-400" />
+                <span className="text-xs font-semibold text-gold-500 uppercase tracking-widest">Get In Touch</span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight">
+                Let’s Start a <span className="gradient-text">Conversation</span>
+              </h2>
+              <p className="text-gray-400 text-sm md:text-base leading-relaxed font-sans max-w-lg">
+                Have an enterprise scale infrastructure project or performance marketing pipeline in mind? Fill out the brief and our strategy team will align with you within 24 hours.
+              </p>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-              Let us Start a <span className="gradient-text">Conversation</span>
-            </h2>
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              Have a project in mind? We would love to hear about it. Fill out the form and our team will 
-              get back to you within 24 hours.
-            </p>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400">
-                  <Phone size={20} />
+
+            {/* Structured Contact Cards */}
+            <div className="space-y-4 max-w-md">
+              {[
+                { label: 'Phone', value: '+91 8847576747', icon: <Phone size={18} /> },
+                { label: 'Email', value: 'info@vintechglobals.com', icon: <Mail size={18} /> },
+                { label: 'Address', value: 'IT TOWER, SECTOR 74, PHASE 8B, MOHALI, PUNJAB', icon: <MapPin size={18} /> }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4 p-4 rounded-xl border border-gray-900 bg-gray-950/40">
+                  <div className="w-10 h-10 rounded-lg bg-gold-500/5 border border-gold-500/10 flex items-center justify-center text-gold-400 shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">{item.label}</p>
+                    <p className="text-white text-sm font-medium mt-0.5 tracking-wide">{item.value}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500">Phone</p>
-                  <p className="text-white">+91 8847576747</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Email</p>
-                  <p className="text-white">info@vintechglobals.com</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400">
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Address</p>
-                  <p className="text-white">IT TOWER, SECTOR 74, PHASE 8B, MOHALI, PUNJAB</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
+
+          {/* Form Side */}
           <div className="animate-on-scroll delay-200">
-            <div className="glass-card rounded-2xl p-8">
+            <div className="p-8 rounded-2xl border border-gray-900 bg-gradient-to-b from-gray-950/60 to-black/40 backdrop-blur-sm relative">
+              
               {submitted ? (
-                <div className="text-center py-12">
-                  <CheckCircle2 size={64} className="text-gold-400 mx-auto mb-4" />
-                  <h3 className="font-display text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                  <p className="text-gray-400">We will be in touch shortly.</p>
+                <div className="text-center py-12 space-y-4">
+                  <CheckCircle2 size={56} className="text-gold-400 mx-auto" />
+                  <div>
+                    <h3 className="font-display text-2xl font-bold text-white">Message Sent!</h3>
+                    <p className="text-gray-400 text-sm mt-1">Our deployment engineers will be in touch shortly.</p>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="text-sm text-gray-400 mb-2 block">Name</label>
+                      <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Name</label>
                       <input
                         type="text"
                         required
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-gold-500/50 focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm"
                         placeholder="Your name"
                       />
                     </div>
                     <div>
-                      <label className="text-sm text-gray-400 mb-2 block">Email</label>
+                      <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Email</label>
                       <input
                         type="email"
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-gold-500/50 focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm"
                         placeholder="you@company.com"
                       />
                     </div>
                   </div>
+
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="text-sm text-gray-400 mb-2 block">Phone</label>
+                      <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Phone</label>
                       <input
                         type="tel"
                         value={formState.phone}
                         onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-gold-500/50 focus:outline-none transition-colors"
-                        placeholder="+1 (234) 567-890"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm"
+                        placeholder="+91 00000-00000"
                       />
                     </div>
                     <div>
-                      <label className="text-sm text-gray-400 mb-2 block">Service</label>
-                      <select
-                        value={formState.service}
-                        onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-gold-500/50 focus:outline-none transition-colors appearance-none"
-                      >
-                        <option value="" className="bg-navy-900">Select a service</option>
-                        <option value="seo" className="bg-navy-900">AI SEO Optimization</option>
-                        <option value="smm" className="bg-navy-900">Social Media Marketing</option>
-                        <option value="web" className="bg-navy-900">Website Design & Development</option>
-                        <option value="google" className="bg-navy-900">Google/youtube Ads</option>
-                        <option value="meta" className="bg-navy-900">Meta Ads</option>
-                        <option value="meta" className="bg-navy-900">Instagram pages promotion</option>
-                        <option value="other" className="bg-navy-900">Other</option>
-                      </select>
+                      <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Service</label>
+                      <div className="relative">
+                        <select
+                          value={formState.service}
+                          onChange={(e) => setFormState({ ...formState, service: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-black text-gray-400">Select an architecture</option>
+                          <option value="seo" className="bg-gray-950 text-white">Generative Engine Optimization (GEO)</option>
+                          <option value="smm" className="bg-gray-950 text-white">Omni-Channel Scale & SMM</option>
+                          <option value="web" className="bg-gray-950 text-white">Conversion-First Development</option>
+                          <option value="ads" className="bg-gray-950 text-white">Programmatic Google & YouTube Ads</option>
+                          <option value="meta" className="bg-gray-950 text-white">High-Retention Meta Funnels</option>
+                          <option value="brand" className="bg-gray-950 text-white">Media & Influencer Promotions</option>
+                          <option value="other" className="bg-gray-950 text-white">Other Complex Ecosystems</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-500 text-xs">▼</div>
+                      </div>
                     </div>
                   </div>
+
                   <div>
-                    <label className="text-sm text-gray-400 mb-2 block">Message</label>
+                    <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Project Scope Brief</label>
                     <textarea
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-gold-500/50 focus:outline-none transition-colors resize-none"
-                      placeholder="Tell us about your project..."
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors resize-none font-sans text-sm"
+                      placeholder="Tell us about your conversion metrics or tracking objectives..."
                     />
                   </div>
-                  <button type="submit" className="btn-gold w-full py-4 rounded-xl text-base flex items-center justify-center gap-2">
-                    Send Message
-                    <ArrowRight size={18} />
+
+                  <button type="submit" className="btn-gold w-full py-4 rounded-xl text-sm font-semibold tracking-wide flex items-center justify-center gap-2 transition-transform duration-300 active:scale-[0.98]">
+                    Deploy Message
+                    <ArrowRight size={16} />
                   </button>
                 </form>
               )}
             </div>
           </div>
+
         </div>
       </div>
     </section>
   );
 }
-
 // ── Footer ──
 function Footer() {
   return (
