@@ -392,48 +392,90 @@ function WhyChooseUs() {
 // ── Process Section ──
 function Process() {
   const steps = [
-    { num: '01', title: 'Discovery', desc: 'Deep dive into your business, goals, and market landscape.' },
-    { num: '02', title: 'Strategy', desc: 'Data-driven roadmap tailored to your objectives and budget.' },
-    { num: '03', title: 'Execution', desc: 'Implementation by certified experts with precision and speed.' },
-    { num: '04', title: 'Optimize', desc: 'Continuous monitoring, testing, and refinement for peak performance.' },
+    {
+      phase: '01',
+      title: 'Deep Semantic Audit',
+      subtitle: 'Discovery & Vector Mapping',
+      description: 'We don’t just look at keywords. We analyze how generative AI nodes and user intent patterns view your brand ecosystem, identifying indexing gaps across the digital landscape.'
+    },
+    {
+      phase: '02',
+      title: 'Funnel Engineering',
+      subtitle: 'Infrastructure & UI/UX Build',
+      description: 'Our team engineers high-retention landing pages and schema architecture natively optimized for both high-converting human traffic and AI search engine web crawlers.'
+    },
+    {
+      phase: '03',
+      title: 'Algorithmic Deployment',
+      subtitle: 'Omni-Channel Activation',
+      description: 'We launch precision-targeted Meta, Google, and LinkedIn funnels synced with programmatic audience triggers to capture high-intent buyers at the lowest possible CAC.'
+    },
+    {
+      phase: '04',
+      title: 'Continuous Scaling',
+      subtitle: 'Attribution & Optimization',
+      description: 'Through constant multi-touch data attribution and creative split-testing, we dynamically scale winning assets to maximize your enterprise revenue and market share.'
+    }
   ];
+
   return (
-    <section id="process" className="py-24 relative">
-      <div className="section-divider mb-24" />
+    <section id="process" className="py-24 relative border-t border-gray-900 bg-black/50">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Clock size={16} className="text-gold-400" />
-            <span className="text-sm text-gold-400 uppercase tracking-[0.2em]">How We Work</span>
-          </div>
+        
+        {/* Section Header */}
+        <div className="text-center mb-20 animate-on-scroll">
+          <span className="text-xs font-semibold tracking-widest text-gold-500 uppercase block mb-3">Our Framework</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            Our <span className="gradient-text">Process</span>
+            The Growth <span className="gradient-text">Architecture</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            A proven methodology that consistently delivers outstanding results
+          <p className="text-gray-400 max-w-2xl mx-auto text-base">
+            A precise, algorithmic pipeline designed to transform cold digital footprints into high-yielding market authority.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, i) => (
-            <div key={step.num} className={`animate-on-scroll delay-${(i + 1) * 100} relative`}>
-              <div className="glass-card rounded-2xl p-8 h-full">
-                <div className="font-display text-5xl font-bold text-[#D8BC5C] mb-4">{step.num}</div>
-                <h3 className="font-display text-xl font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{step.desc}</p>
-              </div>
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-3 text-gold-500/30">
-                  <ArrowRight size={24} />
+
+        {/* Process Timeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          {steps.map((step, idx) => (
+            <div 
+              key={idx} 
+              className={`p-6 rounded-2xl border border-gray-900 bg-gradient-to-b from-gray-950/60 to-black hover:border-gold-500/20 transition-all duration-300 group flex flex-col justify-between relative animate-on-scroll delay-${(idx + 1) * 100}`}
+            >
+              {/* Subtle top bar glow on hover */}
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold-500/0 to-transparent group-hover:via-gold-500/40 transition-all duration-500 rounded-t-2xl" />
+              
+              <div className="space-y-4">
+                {/* Phase Number & Status */}
+                <div className="flex justify-between items-center">
+                  <span className="font-display text-4xl font-extrabold text-gray-900 group-hover:text-gold-500/10 transition-colors duration-500 select-none">
+                    {step.phase}
+                  </span>
+                  <span className="text-[10px] uppercase tracking-widest text-gold-500/60 font-semibold px-2 py-0.5 bg-gold-500/5 rounded-full border border-gold-500/10">
+                    Phase {step.phase}
+                  </span>
                 </div>
-              )}
+
+                {/* Content */}
+                <div className="space-y-1">
+                  <h3 className="font-display text-lg font-bold text-white group-hover:text-gold-400 transition-colors">
+                    {step.title}
+                  </h3>
+                  <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    {step.subtitle}
+                  </div>
+                </div>
+
+                <p className="text-gray-400 text-sm leading-relaxed pt-2">
+                  {step.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
 }
-
 // ── Results / Portfolio Section ──
 function Results() {
   const clients = [
