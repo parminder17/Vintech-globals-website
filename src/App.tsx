@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Blog from './Blog';
 import { useEffect, useRef, useState } from 'react';
 import {
   Search, Share2, Globe, BarChart3, Megaphone, ArrowRight,
@@ -990,19 +992,27 @@ className="w-8 h-8 hover:scale-110 transition"
 // ── Main App ──
 export default function App() {
   useScrollReveal();
+  const isBlogPage = window.location.pathname === '/blog';
 
   return (
     <div className="min-h-screen bg-navy-950 text-gray-300">
       <Navigation />
-      <Hero />
-      <Services />
-      <WhyChooseUs />
-      <Process />
-      <Results />
-      <Testimonials />
-      <CTASection />
-      <Contact />
-      <Footer />
+      
+      {isBlogPage ? (
+        <Blog />
+      ) : (
+        <>
+          <Hero />
+          <Services />
+          <WhyChooseUs />
+          <Process />
+          <Results />
+          <Testimonials />
+          <CTASection />
+          <Contact />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
