@@ -163,17 +163,15 @@ function Hero() {
           Vintech Globals helps businesses generate more qualified leads through AI SEO, Google Ads, Meta Ads, Social Media Marketing and high-converting websites.
         </p>
 
-        {/* START: LOCAL SEO & INDUSTRY SIGNALS */}
+        {/* CLEAN COMPILER SAFE SECTION */}
         <div className="text-center mb-8 animate-slide-up">
-          <p className="text-sm text-gray-400 flex items-center justify-center gap-1.5">
-            <span role="img" aria-label="location">Serving Clients Across Mohali, Chandigarh, Punjab & India</span>
+          <p className="text-sm text-gray-400">
+            Serving Clients Across Mohali, Chandigarh, Punjab &amp; India
           </p>
           <p className="text-xs font-semibold tracking-wider text-gold-300 uppercase mt-2">
-            Trusted by: Real Estate • Restaurants • Healthcare • Education • Coaching
+            Trusted by: Real Estate &bull; Restaurants &bull; Healthcare &bull; Education &bull; Coaching
           </p>
         </div>
-        {/* END: LOCAL SEO & INDUSTRY SIGNALS */}
-
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
           <a href="#contact" className="btn-gold px-8 py-4 rounded-full text-base flex items-center gap-2">
