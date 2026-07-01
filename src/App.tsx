@@ -219,7 +219,7 @@ function Services() {
     {
       icon: <Search size={32} />,
       title: 'AI SEO Optimization',
-      description: 'Dominate search rankings with our proven AI SEO strategies. We optimize your website for organic visibility on AI tools like ChatGpt, Claude, & other, driving qualified traffic and long-term growth.',
+      description: 'Dominate search rankings with our proven AI SEO strategies. We optimize your website for organic visibility on AI tools like ChatGPT, Claude, & others, driving qualified traffic and long-term growth.',
       features: ['Keyword Research', 'Technical SEO', 'Link Building', 'Content Strategy'],
       color: 'from-gold-500/20 to-transparent',
     },
@@ -252,7 +252,60 @@ function Services() {
       color: 'from-purple-500/20 to-transparent',
     },
   ];
+
   return (
+    <section id="services" className="py-24 bg-black/50 relative">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+            Our Specialized <span className="gradient-text">Services</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-base">
+            We combine artificial intelligence with proven marketing strategies to drive measurable growth for your business.
+          </p>
+        </div>
+
+        {/* 5 Cards Balanced Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div 
+              key={index} 
+              className={`p-8 rounded-2xl border border-gray-800 bg-gradient-to-b ${service.color} hover:border-gold-500/50 transition-all duration-300 group flex flex-col justify-between`}
+            >
+              <div>
+                <div className="text-gold-400 mb-6 group-hover:scale-110 transition-transform duration-300 inline-block">
+                  {service.icon}
+                </div>
+                <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* Displaying Features List */}
+              <div className="border-t border-gray-800/60 pt-4 mt-auto">
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="text-xs text-gray-500 flex items-center gap-2">
+                      <span className="text-gold-500/70">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+// ── Services Section ──
     <section id="services" className="py-24 relative">
       <div className="section-divider mb-24" />
       <div className="max-w-7xl mx-auto px-6">
