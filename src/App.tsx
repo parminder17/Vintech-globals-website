@@ -393,25 +393,25 @@ function WhyChooseUs() {
 function Process() {
   const steps = [
     {
-      phase: 'Phase 1',
+      phase: 'Phase 01',
       title: 'Deep Semantic Audit',
       subtitle: 'Discovery & Vector Mapping',
       description: 'We don’t just look at keywords. We analyze how generative AI nodes and user intent patterns view your brand ecosystem, identifying indexing gaps across the digital landscape.'
     },
     {
-      phase: 'Phase 2',
+      phase: 'Phase 02',
       title: 'Funnel Engineering',
       subtitle: 'Infrastructure & UI/UX Build',
       description: 'Our team engineers high-retention landing pages and schema architecture natively optimized for both high-converting human traffic and AI search engine web crawlers.'
     },
     {
-      phase: 'Phase 3',
+      phase: 'Phase 03',
       title: 'Algorithmic Deployment',
       subtitle: 'Omni-Channel Activation',
       description: 'We launch precision-targeted Meta, Google, and LinkedIn funnels synced with programmatic audience triggers to capture high-intent buyers at the lowest possible CAC.'
     },
     {
-      phase: 'Phase 4',
+      phase: 'Phase 04',
       title: 'Continuous Scaling',
       subtitle: 'Attribution & Optimization',
       description: 'Through constant multi-touch data attribution and creative split-testing, we dynamically scale winning assets to maximize your enterprise revenue and market share.'
@@ -444,15 +444,15 @@ function Process() {
               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold-500/0 to-transparent group-hover:via-gold-500/40 transition-all duration-500 rounded-t-2xl" />
               
               <div className="space-y-4">
-                {/* Phase Number Header */}
+                {/* Fixed Golden Border Badge Look */}
                 <div className="flex justify-between items-center">
-                  <span className="font-display text-2xl font-extrabold text-gray-800 group-hover:text-gold-500/20 transition-colors duration-500 select-none tracking-tight">
+                  <span className="text-[11px] uppercase tracking-widest text-gold-400 font-bold px-3 py-1 bg-gold-500/10 rounded-full border border-gold-500/30 group-hover:bg-gold-500 group-hover:text-black group-hover:border-gold-500 transition-all duration-300">
                     {step.phase}
                   </span>
                 </div>
 
                 {/* Content */}
-                <div className="space-y-1">
+                <div className="space-y-1 pt-2">
                   <h3 className="font-display text-lg font-bold text-white group-hover:text-gold-400 transition-colors">
                     {step.title}
                   </h3>
@@ -461,7 +461,7 @@ function Process() {
                   </div>
                 </div>
 
-                <p className="text-gray-400 text-sm leading-relaxed pt-2">
+                <p className="text-gray-400 text-sm leading-relaxed pt-1">
                   {step.description}
                 </p>
               </div>
