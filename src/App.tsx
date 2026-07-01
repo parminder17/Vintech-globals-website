@@ -474,56 +474,85 @@ function Process() {
   );
 }
 // ── Results / Portfolio Section ──
-function Results() {
-  const clients = [
-    { name: 'TechFlow Inc.', service: 'SEO & Google Ads', result: '+312% Organic Traffic', period: '6 months' },
-    { name: 'Luxury Brands Co.', service: 'Meta Ads', result: '+280% ROAS', period: '3 months' },
-    { name: 'HealthPlus Global', service: 'Full Stack Digital', result: '+450% Leads', period: '12 months' },
-    { name: 'E-Commerce Hub', service: 'Website + Ads', result: '+190% Revenue', period: '8 months' },
+function Portfolio() {
+  const projects = [
+    {
+      brand: 'Aether Fragrances',
+      category: 'E-commerce & Omni-Channel Ads',
+      metric: '+340% Revenue Growth',
+      description: 'Scaled a premium scent brand by engineering a high-converting automated Meta funnel paired with predictive search intent targeting.',
+      image: 'from-gold-600/20 to-black',
+    },
+    {
+      brand: 'Nexus Tech Systems',
+      category: 'Enterprise AI SEO & GEO',
+      metric: 'Top AI Search Recommendation',
+      description: 'Optimized an enterprise software provider’s digital ecosystem for Generative Engine Optimization, ranking them as the definitive answer on Gemini and ChatGPT.',
+      image: 'from-blue-600/20 to-black',
+    },
+    {
+      brand: 'Luminary Media Group',
+      category: 'Conversion-First Web Dev',
+      metric: '0.8s Load Time | 4.8% Conv Rate',
+      description: 'Designed and deployed a hyper-fast headless digital architecture built natively for AI crawlers and maximum user experience scaling.',
+      image: 'from-purple-600/20 to-black',
+    },
   ];
+
   return (
-    <section id="results" className="py-24 relative">
-      <div className="section-divider mb-24" />
+    <section id="portfolio" className="py-24 relative border-t border-gray-900 bg-black/30">
       <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Section Header */}
         <div className="text-center mb-16 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <TrendingUp size={16} className="text-gold-400" />
-            <span className="text-sm text-gold-400 uppercase tracking-[0.2em]">Proven Results</span>
-          </div>
+          <span className="text-xs font-semibold tracking-widest text-gold-500 uppercase block mb-3">Case Studies</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            Client <span className="gradient-text">Success Stories</span>
+            Proven Market <span className="gradient-text">Authority</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Real results from real businesses. Here is what we have achieved for our clients.
+          <p className="text-gray-400 max-w-2xl mx-auto text-base">
+            Real metrics. Real enterprise scale. Explore how we position our partners for dominance in a post-search digital economy.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          {clients.map((client, i) => (
-            <div
-              key={client.name}
-              className={`glass-card rounded-2xl p-8 animate-on-scroll delay-${(i + 1) * 100} hover:bg-white/[0.05] transition-all duration-500 group`}
+
+        {/* Portfolio Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, idx) => (
+            <div 
+              key={idx}
+              className={`group relative rounded-2xl border border-gray-900 bg-gradient-to-b ${project.image} p-8 hover:border-gold-500/30 transition-all duration-500 flex flex-col justify-between overflow-hidden min-h-[380px] animate-on-scroll delay-${(idx + 1) * 100}`}
             >
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h3 className="font-display text-xl font-bold text-white group-hover:text-gold-400 transition-colors">
-                    {client.name}
-                  </h3>
-                  <p className="text-sm text-gray-500">{client.service}</p>
+              {/* Subtle background glow effect on card hover */}
+              <div className="absolute inset-0 bg-gold-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="space-y-4 relative z-10">
+                <div className="flex justify-between items-start">
+                  <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase px-2.5 py-1 bg-gray-950 rounded-md border border-gray-900">
+                    {project.category}
+                  </span>
                 </div>
-                <div className="text-right">
-                  <p className="font-display text-2xl font-bold text-gold-400">{client.result}</p>
-                  <p className="text-xs text-gray-500">{client.period}</p>
-                </div>
+                
+                <h3 className="font-display text-2xl font-bold text-white group-hover:text-gold-400 transition-colors duration-300 pt-2">
+                  {project.brand}
+                </h3>
+                
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {project.description}
+                </p>
               </div>
-              <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-gold-600 to-gold-400 rounded-full transition-all duration-1000 group-hover:from-gold-400 group-hover:to-gold-200"
-                  style={{ width: `${85 + i * 5}%` }}
-                />
+
+              {/* High-Impact Metric Footer */}
+              <div className="border-t border-gray-900/80 pt-6 mt-8 relative z-10">
+                <div className="text-[10px] uppercase tracking-widest text-gold-500 font-bold mb-1">
+                  Verified Result
+                </div>
+                <div className="font-display text-xl font-extrabold text-white tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                  {project.metric} <span className="text-gold-500 text-base font-normal ml-1">→</span>
+                </div>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
