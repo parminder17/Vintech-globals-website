@@ -86,10 +86,10 @@ function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
-          <img src="/Untitled_design_(1).png" alt="Vintech Globals" className="h-10 w-auto" />
+          <img src="/Untitled_design_(1).png" alt="Vintech Globals Digital Marketing Agency Mohali" className="h-10 w-auto" />
           <div className="hidden sm:block">
             <p className="font-display text-lg font-bold text-white leading-tight">Vintech Globals</p>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-gold-400">Loyalty to Royalty</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-gold-400">Scaling Brands via AI-Driven Digital Growth</p>
           </div>
         </a>
         <div className="hidden md:flex items-center gap-8">
