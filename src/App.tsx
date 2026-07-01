@@ -185,7 +185,13 @@ function Hero() {
             <ChevronRight size={18} />
           </a>
         </div>
-
+        
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-400 animate-slide-up delay-250">
+          <div>✓ Free Strategy Call</div>
+          <div>✓ Transparent Pricing</div>
+          <div>✓ AI-Powered Marketing</div>
+        </div>
+        
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 animate-slide-up delay-300">
           {[
             { num: 500, label: 'Clients Served', suffix: '+' },
