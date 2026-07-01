@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Blog from './Blog';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -991,37 +991,25 @@ className="w-8 h-8 hover:scale-110 transition"
 
 // ── Main App ──
 export default function App() {
-  useScrollReveal();
-  
-  // Naya tarika: State use karo
-  const [currentPath, setCurrentPath] = useState('/');
-
-  useEffect(() => {
-    // Eh code sirf browser te chalega, server te nahi
-    setCurrentPath(window.location.pathname);
-  }, []);
-
-  const isBlogPage = currentPath === '/blog';
-
   return (
     <div className="min-h-screen bg-navy-950 text-gray-300">
       <Navigation />
-      
-      {isBlogPage ? (
-        <Blog />
-      ) : (
-        <>
-          <Hero />
-          <Services />
-          <WhyChooseUs />
-          <Process />
-          <Results />
-          <Testimonials />
-          <CTASection />
-          <Contact />
-          <Footer />
-        </>
-      )}
+      <Routes>
+        <Route path="/" element={
+           <>
+             <Hero />
+             <Services />
+             <WhyChooseUs />
+             <Process />
+             <Results />
+             <Testimonials />
+             <CTASection />
+             <Contact />
+             <Footer />
+           </>
+        } />
+        <Route path="/blog" element={<Blog />} />
+      </Routes>
     </div>
   );
 }
