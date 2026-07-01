@@ -307,7 +307,7 @@ function Services() {
       </div>
     </section>
   );
-}// ── Why Choose Us ──
+}// ── Why Partner With Us ──
 function WhyChooseUs() {
   const stats = [
     { value: '10x+', label: 'Average Client ROI', description: 'Driven by predictive intent mapping and GEO tactics.' },
@@ -331,7 +331,7 @@ function WhyChooseUs() {
   ];
 
   return (
-    <section id="why-choose-us" className="py-24 relative border-t border-gray-900 bg-black/30">
+    <section id="why-us" className="py-24 relative border-t border-gray-900 bg-black/30">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
@@ -543,7 +543,7 @@ function Results() {
   }, []);
 
   return (
-    <section id="portfolio" className="py-24 relative border-t border-gray-900 bg-black/30">
+    <section id="results" className="py-24 relative border-t border-gray-900 bg-black/30">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
