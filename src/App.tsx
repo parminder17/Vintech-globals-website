@@ -474,14 +474,14 @@ function Process() {
   );
 }
 // ── Results / Portfolio Section ──
-function Portfolio() {
+function Results() {
   const projects = [
     {
       brand: 'Aether Fragrances',
       category: 'E-commerce & Omni-Channel Ads',
       metric: '+340% Revenue Growth',
       duration: '6 months',
-      progressWidth: 'w-[85%]', // Controls the custom yellow line width
+      progressWidth: 'w-[85%]',
     },
     {
       brand: 'Nexus Tech Systems',
@@ -510,7 +510,7 @@ function Portfolio() {
     <section id="portfolio" className="py-24 relative border-t border-gray-900 bg-black/30">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Section Header Matching Your exact UI */}
+        {/* Section Header */}
         <div className="text-center mb-16 animate-on-scroll">
           <div className="inline-flex items-center gap-2 mb-3 justify-center w-full">
             <span className="text-xs font-semibold tracking-widest text-gold-500 uppercase">↗ Proven Results</span>
@@ -523,7 +523,7 @@ function Portfolio() {
           </p>
         </div>
 
-        {/* 4-Card Grid Framework matching image layout */}
+        {/* 4-Card Grid Framework */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, idx) => (
             <div 
@@ -550,7 +550,7 @@ function Portfolio() {
                 </div>
               </div>
 
-              {/* Your exact UI dynamic yellow metric line */}
+              {/* Dynamic yellow metric line */}
               <div className="w-full bg-gray-900/60 h-[3px] rounded-full mt-8 overflow-hidden">
                 <div className={`h-full bg-gradient-to-r from-gold-600 to-gold-400 rounded-full ${project.progressWidth} group-hover:brightness-125 transition-all duration-500`} />
               </div>
