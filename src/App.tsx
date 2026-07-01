@@ -194,10 +194,10 @@ function Hero() {
         
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 animate-slide-up delay-300">
           {[
-            { num: 500, label: 'Clients Served', suffix: '+' },
-            { num: 98, label: 'Success Rate', suffix: '%' },
-            { num: 12, label: 'Years Experience', suffix: '+' },
-            { num: 50, label: 'Team Experts', suffix: '+' },
+            { num: 20, label: 'Clients Served', suffix: '+' },
+            { num: 99, label: 'Success Rate', suffix: '%' },
+            { num: 5, label: 'Years Experience', suffix: '+' },
+            { num: 30, label: 'Team Experts', suffix: '+' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="font-display text-3xl md:text-4xl font-bold text-gold-400 mb-1">
