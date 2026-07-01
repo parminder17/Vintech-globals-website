@@ -474,52 +474,93 @@ function Process() {
   );
 }
 // ── Results / Portfolio Section ──
+import { useState, useEffect } from 'react';
+
 function Results() {
   const projects = [
     {
       brand: 'Aether Fragrances',
       category: 'E-commerce & Omni-Channel Ads',
-      metric: '+340% Revenue Growth',
+      targetMetric: 340,
+      suffix: '% Revenue Growth',
       duration: '6 months',
-      progressWidth: 'w-[85%]',
+      progressWidth: '85%',
     },
     {
       brand: 'Nexus Tech Systems',
       category: 'Enterprise AI SEO & GEO',
-      metric: 'Top AI Recommended Answer',
+      targetMetric: 98,
+      prefix: 'Top ',
+      suffix: '% AI Recommendation',
       duration: '3 months',
-      progressWidth: 'w-[92%]',
+      progressWidth: '92%',
     },
     {
       brand: 'Luminary Media Group',
       category: 'Conversion-First Web Dev',
-      metric: '0.8s Load | +4.8% Conv Rate',
+      targetMetric: 4.8,
+      suffix: '% Conversion Rate',
       duration: '4 months',
-      progressWidth: 'w-[78%]',
+      progressWidth: '78%',
+      extra: '0.8s Load Time | '
     },
     {
       brand: 'Vitonnix Markets',
       category: 'Full-Stack Performance Marketing',
-      metric: '+450% Scaled Pipeline',
+      targetMetric: 450,
+      suffix: '% Scaled Pipeline',
       duration: '12 months',
-      progressWidth: 'w-[95%]',
+      progressWidth: '95%',
     }
   ];
+
+  // State to trigger the animations once component mounts
+  const [animated, setAnimated] = useState(false);
+  const [counts, setCounts] = useState(projects.map(() => 0));
+
+  useEffect(() => {
+    setAnimated(true);
+    
+    // Smooth number counting effect
+    const duration = 1500; // 1.5 seconds animation
+    const steps = 50;
+    const stepTime = duration / steps;
+    let step = 0;
+
+    const timer = setInterval(() => {
+      step++;
+      setCounts(prevCounts => 
+        projects.map((proj, idx) => {
+          const target = proj.targetMetric;
+          const current = (target / steps) * step;
+          if (step >= steps) return target;
+          // Handle floating values nicely for decimals like 4.8
+          return target % 1 === 0 ? Math.floor(current) : parseFloat(current.toFixed(1));
+        })
+      );
+
+      if (step >= steps) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="portfolio" className="py-24 relative border-t border-gray-900 bg-black/30">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Section Header */}
+        {/* Section Header with Clean Tech Fonts */}
         <div className="text-center mb-16 animate-on-scroll">
           <div className="inline-flex items-center gap-2 mb-3 justify-center w-full">
             <span className="text-xs font-semibold tracking-widest text-gold-500 uppercase">↗ Proven Results</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            Client <span className="text-gold-400 italic font-serif font-normal">Success Stories</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            Client <span className="gradient-text">Success Stories</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-            Real results from real businesses. Here is what we have achieved for our clients.
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base font-sans">
+            Real metrics. Real enterprise scale. Explore how we position our partners for dominance in a post-search digital economy.
           </p>
         </div>
 
@@ -528,31 +569,38 @@ function Results() {
           {projects.map((project, idx) => (
             <div 
               key={idx}
-              className="p-8 rounded-2xl border border-gray-900/60 bg-gradient-to-br from-gray-950/40 to-black/80 hover:border-gold-500/20 transition-all duration-500 flex flex-col justify-between min-h-[160px] relative group animate-on-scroll"
+              className="p-8 rounded-2xl border border-gray-900/60 bg-gradient-to-br from-gray-950/40 to-black/80 hover:border-gold-500/20 transition-all duration-500 flex flex-col justify-between min-h-[160px] relative group"
             >
               <div className="flex justify-between items-start gap-4">
                 <div>
-                  <h3 className="font-display text-xl font-bold text-white group-hover:text-gold-400 transition-colors duration-300">
+                  <h3 className="font-display text-xl font-bold text-white group-hover:text-gold-400 transition-colors duration-300 tracking-tight">
                     {project.brand}
                   </h3>
-                  <p className="text-gray-500 text-xs mt-1 font-medium tracking-wide">
+                  <p className="text-gray-500 text-xs mt-1 font-sans font-medium tracking-wide uppercase">
                     {project.category}
                   </p>
                 </div>
                 
                 <div className="text-right">
+                  {/* Dynamic Incrementing Counter */}
                   <div className="font-display text-lg md:text-xl font-extrabold text-gold-400 tracking-tight">
-                    {project.metric}
+                    {project.extra && <span className="text-gray-400 text-sm font-normal">{project.extra}</span>}
+                    {project.prefix && project.prefix}
+                    {counts[idx]}
+                    {project.suffix}
                   </div>
-                  <div className="text-[10px] text-gray-600 uppercase tracking-wider mt-0.5">
+                  <div className="text-[10px] text-gray-600 font-sans uppercase tracking-wider mt-0.5">
                     {project.duration}
                   </div>
                 </div>
               </div>
 
-              {/* Dynamic yellow metric line */}
+              {/* Smooth Animated Progress Bar */}
               <div className="w-full bg-gray-900/60 h-[3px] rounded-full mt-8 overflow-hidden">
-                <div className={`h-full bg-gradient-to-r from-gold-600 to-gold-400 rounded-full ${project.progressWidth} group-hover:brightness-125 transition-all duration-500`} />
+                <div 
+                  className="h-full bg-gradient-to-r from-gold-600 to-gold-400 rounded-full group-hover:brightness-125 transition-all duration-[1500ms] ease-out" 
+                  style={{ width: animated ? project.progressWidth : '0%' }}
+                />
               </div>
             </div>
           ))}
@@ -562,6 +610,8 @@ function Results() {
     </section>
   );
 }
+
+export default Results;
 // ── Testimonials Section ──
 function Testimonials() {
   const testimonials = [
