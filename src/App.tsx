@@ -255,26 +255,32 @@ function Services() {
 
   return (
     <section id="services" className="py-24 bg-black/50 relative">
+      <div className="section-divider mb-24" />
       <div className="max-w-7xl mx-auto px-6">
         
-        <div className="text-center mb-16 animate-fade-in">
+        {/* Header Block with Sparkles and Scroll Animation */}
+        <div className="text-center mb-16 animate-on-scroll">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <Sparkles size={16} className="text-gold-400" />
+            <span className="text-sm text-gold-400 uppercase tracking-[0.2em]">Our Expertise</span>
+          </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            Our Specialized <span className="gradient-text">Services</span>
+            Services We <span className="gradient-text">Offer</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-base">
-            We combine artificial intelligence with proven marketing strategies to drive measurable growth for your business.
+            Comprehensive AI-driven digital marketing solutions tailored to accelerate your business growth.
           </p>
         </div>
 
-        {/* 5 Cards Balanced Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+        {/* 5 Cards Layout with Glass Card Style */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, i) => (
             <div 
-              key={index} 
-              className={`p-8 rounded-2xl border border-gray-800 bg-gradient-to-b ${service.color} hover:border-gold-500/50 transition-all duration-300 group flex flex-col justify-between`}
+              key={service.title} 
+              className={`service-card glass-card rounded-2xl p-8 hover:bg-white/[0.05] border border-gray-800 bg-gradient-to-b ${service.color} hover:border-gold-500/50 transition-all duration-500 animate-on-scroll delay-${(i + 1) * 100} group flex flex-col justify-between`}
             >
               <div>
-                <div className="text-gold-400 mb-6 group-hover:scale-110 transition-transform duration-300 inline-block">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gray-800 to-transparent flex items-center justify-center mb-6 service-icon text-gold-400 group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
                 <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">
@@ -285,16 +291,14 @@ function Services() {
                 </p>
               </div>
 
-              {/* Displaying Features List */}
-              <div className="border-t border-gray-800/60 pt-4 mt-auto">
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="text-xs text-gray-500 flex items-center gap-2">
-                      <span className="text-gold-500/70">✓</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+              {/* Displaying Features with CheckCircle2 */}
+              <div className="border-t border-gray-800/60 pt-4 mt-auto space-y-2">
+                {service.features.map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-500">
+                    <CheckCircle2 size={14} className="text-gold-500" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
