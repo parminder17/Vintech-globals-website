@@ -992,7 +992,16 @@ className="w-8 h-8 hover:scale-110 transition"
 // ── Main App ──
 export default function App() {
   useScrollReveal();
-  const isBlogPage = window.location.pathname === '/blog';
+  
+  // Naya tarika: State use karo
+  const [currentPath, setCurrentPath] = useState('/');
+
+  useEffect(() => {
+    // Eh code sirf browser te chalega, server te nahi
+    setCurrentPath(window.location.pathname);
+  }, []);
+
+  const isBlogPage = currentPath === '/blog';
 
   return (
     <div className="min-h-screen bg-navy-950 text-gray-300">
@@ -1016,4 +1025,3 @@ export default function App() {
     </div>
   );
 }
-  
