@@ -153,23 +153,22 @@ function Hero() {
       <div className="relative max-w-7xl mx-auto px-6 text-center pt-24">
         <div className="animate-fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8">
           <Crown size={14} className="text-gold-400" />
-          <span className="text-sm text-gold-300">Premium AI Driven Digital Marketing Solutions</span>
+          <span className="text-sm text-gold-300">AI SEO • Google Ads • Meta Ads • Websites</span>
         </div>
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-6 animate-slide-up text-shadow">
-          Elevate Your <br />
-          <span className="gradient-text">Digital Presence</span>
+          AI-Powered Digital Marketing Agency <br />
+          <span className="gradient-text"> That Drives Real Business Growth</span>
         </h1>
         <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 animate-slide-up delay-100 leading-relaxed">
-          We craft data-driven strategies that transform brands into market leaders. 
-          From SEO to paid campaigns, we deliver measurable growth.
+          Vintech Globals helps businesses generate more qualified leads through AI SEO, Google Ads, Meta Ads, Social Media Marketing and high-converting websites.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
           <a href="#contact" className="btn-gold px-8 py-4 rounded-full text-base flex items-center gap-2">
-            Start Your Journey
+            Get Free Strategy Call
             <ArrowRight size={18} />
           </a>
           <a href="#services" className="btn-outline px-8 py-4 rounded-full text-base flex items-center gap-2">
-            Explore Services
+            View Our Services
             <ChevronRight size={18} />
           </a>
         </div>
