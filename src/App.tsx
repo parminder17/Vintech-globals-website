@@ -709,7 +709,7 @@ function Contact() {
     e.preventDefault();
     setLoading(true);
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby-P_ZOD4_sE4kZtF-XFWGKbkR3RsNSS-m1sIj0AJ9QErwdQTBnBqkEc14RExFjUMnFyQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxSLLNx2HNLdCywm6k7wQmfcHSC0y8VnsNMYTEVbBCYMIcFygN4dO26ztesL8JZnAAZVw/exec';
     
     const formData = new FormData();
     formData.append('name', formState.name);
