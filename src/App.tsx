@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Blog from './Blog';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -74,12 +74,12 @@ function Navigation() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Blog', href: '/blog' }, // <--- Eh line add kar do!
-  { label: 'Results', href: '#results' },
-  { label: 'Contact', href: '#contact' },
-];
+    { label: 'Services', href: '#services' },
+    { label: 'Why Us', href: '#why-us' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Results', href: '#results' },
+    { label: 'Contact', href: '#contact' },
+  ];
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -105,13 +105,13 @@ function Navigation() {
             </a>
           ))}
           <a
-  href="https://wa.me/918847576747?text=Hi%20Vintech%20Globals%2C%20I%20want%20to%20know%20more%20about%20your%20services."
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-[#25D366] hover:bg-[#1EBE57] text-white px-6 py-2.5 rounded-full text-sm transition"
->
-  Chat on WhatsApp
-</a>
+            href="https://wa.me/918847576747?text=Hi%20Vintech%20Globals%2C%20I%20want%20to%20know%20more%20about%20your%20services."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#25D366] hover:bg-[#1EBE57] text-white px-6 py-2.5 rounded-full text-sm transition"
+          >
+            Chat on WhatsApp
+          </a>
         </div>
         <button className="md:hidden text-white" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -130,14 +130,14 @@ function Navigation() {
             </a>
           ))}
           <a
-  href="https://wa.me/918847576747"
-  target="_blank"
-  rel="noopener noreferrer"
-  onClick={() => setMobileOpen(false)}
-  className="bg-[#25D366] hover:bg-[#1EBE57] text-white block text-center px-6 py-2.5 rounded-full text-sm transition"
->
-  Chat on WhatsApp
-</a>
+            href="https://wa.me/918847576747"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileOpen(false)}
+            className="bg-[#25D366] hover:bg-[#1EBE57] text-white block text-center px-6 py-2.5 rounded-full text-sm transition"
+          >
+            Chat on WhatsApp
+          </a>
         </div>
       )}
     </nav>
@@ -177,7 +177,7 @@ function Hero() {
             Trusted by: Real Estate | Restaurants | Healthcare | Education | Coaching
           </p>
         </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
           <a href="#contact" className="btn-gold px-8 py-4 rounded-full text-base flex items-center gap-2">
             Get Free Strategy Call
             <ArrowRight size={18} />
@@ -188,7 +188,7 @@ function Hero() {
           </a>
         </div>
         
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-400 animate-slide-up delay-250">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-400 animate-slide-up delay-250">
           <div>✓ Free Strategy Call</div>
           <div>✓ Transparent Pricing</div>
           <div>✓ AI-Powered Marketing</div>
@@ -309,7 +309,9 @@ function Services() {
       </div>
     </section>
   );
-}// ── Why Partner With Us ──
+}
+
+// ── Why Partner With Us ──
 function WhyChooseUs() {
   const stats = [
     { value: '10x+', label: 'Average Client ROI', description: 'Driven by predictive intent mapping and GEO tactics.' },
@@ -475,6 +477,7 @@ function Process() {
     </section>
   );
 }
+
 // ── Results / Portfolio Section ──
 function Results() {
   const projects = [
@@ -606,6 +609,7 @@ function Results() {
     </section>
   );
 }
+
 // ── Testimonials Section ──
 function Testimonials() {
   const testimonials = [
@@ -701,315 +705,95 @@ function CTASection() {
   );
 }
 
+// ── Contact Section ──
 function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', service: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // 'async' keyword add kita taaki await sahi kamm kare
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyNhB0cgJRkC7SyqA1seoxPwgUYR0F_jTyX1XfvNoP1X5TBwPm00uFoFHP06PjuNXdW/exec';
     
-    const params = new URLSearchParams();
-    params.append('name', formState.name);
-    params.append('email', formState.email);
-    params.append('phone', formState.phone);
-    params.append('service', formState.service);
-    params.append('message', formState.message);
-
     try {
-      await fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: params
-      });
+      const formData = new FormData();
+      Object.entries(formState).forEach(([key, val]) => formData.append(key, val));
       
+      await fetch(scriptURL, { method: 'POST', body: formData });
       setSubmitted(true);
-      setFormState({ name: '', email: '', phone: '', service: '', message: '' });
-      setTimeout(() => setSubmitted(false), 3000);
     } catch (error) {
-      console.error('Error:', error);
-      alert("Something went wrong. Please try again.");
+      console.error('Error!', error);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="py-24 relative border-t border-gray-900/60 bg-black/10">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Info Side */}
-          <div className="animate-on-scroll space-y-8">
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2">
-                <Mail size={16} className="text-gold-400" />
-                <span className="text-xs font-semibold text-gold-500 uppercase tracking-widest">Get In Touch</span>
-              </div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight">
-                Let’s Start a <span className="gradient-text">Conversation</span>
-              </h2>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed font-sans max-w-lg">
-                Have an enterprise scale infrastructure project or performance marketing pipeline in mind? Fill out the brief and our strategy team will align with you within 24 hours.
-              </p>
-            </div>
-
-            <div className="space-y-4 max-w-md">
-              {[
-                { label: 'Phone', value: '+91 8847576747', icon: <Phone size={18} /> },
-                { label: 'Email', value: 'info@vintechglobals.com', icon: <Mail size={18} /> },
-                { label: 'Address', value: 'IT TOWER, SECTOR 74, PHASE 8B, MOHALI, PUNJAB', icon: <MapPin size={18} /> }
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 p-4 rounded-xl border border-gray-900 bg-gray-950/40">
-                  <div className="w-10 h-10 rounded-lg bg-gold-500/5 border border-gold-500/10 flex items-center justify-center text-gold-400 shrink-0">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">{item.label}</p>
-                    <p className="text-white text-sm font-medium mt-0.5 tracking-wide">{item.value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Form Side */}
-          <div className="animate-on-scroll delay-200">
-            <div className="p-8 rounded-2xl border border-gray-900 bg-gradient-to-b from-gray-950/60 to-black/40 backdrop-blur-sm relative">
-              
-              {submitted ? (
-                <div className="text-center py-12 space-y-4">
-                  <CheckCircle2 size={56} className="text-gold-400 mx-auto" />
-                  <div>
-                    <h3 className="font-display text-2xl font-bold text-white">Message Sent!</h3>
-                    <p className="text-gray-400 text-sm mt-1">Our deployment engineers will be in touch shortly.</p>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Name</label>
-                      <input type="text" required value={formState.name} onChange={(e) => setFormState({...formState, name: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm" placeholder="Your name" />
-                    </div>
-                    <div>
-                      <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Email</label>
-                      <input type="email" required value={formState.email} onChange={(e) => setFormState({...formState, email: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm" placeholder="you@company.com" />
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Phone</label>
-                      <input type="tel" value={formState.phone} onChange={(e) => setFormState({...formState, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm" placeholder="+91 00000-00000" />
-                    </div>
-                    <div>
-                      <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Service</label>
-                      <select value={formState.service} onChange={(e) => setFormState({...formState, service: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white focus:border-gold-500/30 focus:outline-none transition-colors font-sans text-sm appearance-none cursor-pointer">
-                        <option value="" className="bg-black text-gray-400">Select an architecture</option>
-                        <option value="seo" className="bg-gray-950 text-white">Generative Engine Optimization (GEO)</option>
-                        <option value="smm" className="bg-gray-950 text-white">Omni-Channel Scale & SMM</option>
-                        <option value="web" className="bg-gray-950 text-white">Conversion-First Development</option>
-                        <option value="ads" className="bg-gray-950 text-white">Programmatic Google & YouTube Ads</option>
-                        <option value="meta" className="bg-gray-950 text-white">High-Retention Meta Funnels</option>
-                        <option value="brand" className="bg-gray-950 text-white">Media & Influencer Promotions</option>
-                        <option value="other" className="bg-gray-950 text-white">Other Complex Ecosystems</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Project Scope Brief</label>
-                    <textarea rows={4} value={formState.message} onChange={(e) => setFormState({...formState, message: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-900 text-white placeholder-gray-600 focus:border-gold-500/30 focus:outline-none transition-colors resize-none font-sans text-sm" placeholder="Tell us about your conversion metrics..." />
-                  </div>
-
-                  <button disabled={loading} type="submit" className="btn-gold w-full py-4 rounded-xl text-sm font-semibold tracking-wide flex items-center justify-center gap-2 transition-transform duration-300 active:scale-[0.98]">
-                    {loading ? 'Deploying...' : 'Deploy Message'}
-                    <ArrowRight size={16} />
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
+    <section id="contact" className="py-24 bg-black/40 relative">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="text-center mb-16">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+            Let's Talk <span className="gradient-text">Strategy</span>
+          </h2>
         </div>
+        {submitted ? (
+          <p className="text-gold-400 font-semibold">Thank you! We will get back to you soon.</p>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto text-left">
+            <input type="text" id="name" name="name" placeholder="Your Name" required className="w-full p-3 rounded bg-gray-900 border border-gray-800 text-white" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value})} />
+            <input type="email" id="email" name="email" placeholder="Your Email" required className="w-full p-3 rounded bg-gray-900 border border-gray-800 text-white" value={formState.email} onChange={e => setFormState({...formState, email: e.target.value})} />
+            <input type="text" id="phone" name="phone" placeholder="Phone Number" required className="w-full p-3 rounded bg-gray-900 border border-gray-800 text-white" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} />
+            <select id="service" name="service" required className="w-full p-3 rounded bg-gray-900 border border-gray-800 text-white" value={formState.service} onChange={e => setFormState({...formState, service: e.target.value})}>
+              <option value="">Select Service</option>
+              <option value="SEO">AI SEO & GEO</option>
+              <option value="WebDev">Web Development</option>
+              <option value="Ads">Paid Ads</option>
+            </select>
+            <textarea id="message" name="message" placeholder="Your Message" required rows={4} className="w-full p-3 rounded bg-gray-900 border border-gray-800 text-white" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})}></textarea>
+            <button type="submit" disabled={loading} className="w-full btn-gold py-3 rounded-full">{loading ? 'Sending...' : 'Send Message'}</button>
+          </form>
+        )}
       </div>
     </section>
   );
 }
-// ── Footer ──
+
+// ── Footer Section ──
 function Footer() {
   return (
-    <footer className="py-16 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-
-          {/* Logo + Text */}
-          <div className="md:col-span-2">
-
-            <div className="flex items-center gap-3 mb-4">
-              <img
-                src="/Untitled_design_(1).png"
-                alt="Vintech Globals"
-                className="h-10 w-auto"
-              />
-
-              <div>
-                <p className="font-display text-lg font-bold text-white">
-                  Vintech Globals
-                </p>
-
-                <p className="text-[10px] uppercase tracking-[0.2em] text-gold-400">
-                  Loyalty to Royalty
-                </p>
-              </div>
-
-            </div>
-
-           <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-  Your trusted partner for premium digital marketing solutions.
-  We transform brands into market leaders through data-driven
-  strategies and creative excellence.
-</p>
-
-<div className="flex gap-4 mt-6">
-
-<a href="https://instagram.com/vintechglobals/" target="_blank" rel="noopener noreferrer">
-<img
-src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-alt="Instagram"
-className="w-8 h-8 hover:scale-110 transition"
-/>
-</a>
-
-<a href="https://facebook.com/i.mparmindersingh" target="_blank" rel="noopener noreferrer">
-<img
-src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
-alt="Facebook"
-className="w-8 h-8 hover:scale-110 transition"
-/>
-</a>
-
-<a href="https://www.linkedin.com/company/vintech-globals/" target="_blank" rel="noopener noreferrer">
-<img
-src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png"
-alt="LinkedIn"
-className="w-8 h-8 hover:scale-110 transition"
-/>
-</a>
-
-</div>
-</div>
-          {/* Services */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">
-              Services
-            </h4>
-
-            <ul className="space-y-3">
-              {[
-                "SEO Optimization",
-                "Social Media Marketing",
-                "Website Development",
-                "Google Ads",
-                "Meta Ads",
-              ].map((s) => (
-                <li key={s}>
-                  <a
-                    href="#services"
-                    className="text-sm text-gray-400 hover:text-gold-400 transition-colors"
-                  >
-                    {s}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">
-              Company
-            </h4>
-
-            <ul className="space-y-3">
-              {[
-                "About Us",
-                "Our Process",
-                "Case Studies",
-                "Contact",
-                "Careers",
-              ].map((s) => (
-                <li key={s}>
-                  <a
-                    href="#"
-                    className="text-sm text-gray-400 hover:text-gold-400 transition-colors"
-                  >
-                    {s}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-          </div>
-
-        </div>
-
-        <div className="section-divider mb-8" />
-
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-
-          <p className="text-sm text-gray-500">
-  © {new Date().getFullYear()} Vintech Globals. All rights reserved.
-</p>
-
-<div className="flex items-center gap-6">
-  {[
-    "Privacy Policy",
-    "Terms of Service",
-    "Cookie Policy",
-  ].map((s) => (
-    <a
-      key={s}
-      href="#"
-      className="text-sm text-gray-500 hover:text-gold-400 transition-colors"
-    >
-      {s}
-    </a>
-  ))}
-</div>
-
-</div>
-</div>
-</footer>
-);
+    <footer className="py-8 border-t border-gray-900 text-center text-sm text-gray-500">
+      <p>&copy; {new Date().getFullYear()} Vintech Globals. All Rights Reserved.</p>
+    </footer>
+  );
 }
 
-// ── Main App ──
+// ── Main App Routing Component ──
 export default function App() {
+  useScrollReveal();
+
   return (
-    <div className="min-h-screen bg-navy-950 text-gray-300">
-      <Navigation />
-      <Routes>
-        <Route path="/" element={
-           <>
-             <Hero />
-             <Services />
-             <WhyChooseUs />
-             <Process />
-             <Results />
-             <Testimonials />
-             <CTASection />
-             <Contact />
-             <Footer />
-           </>
-        } />
-        <Route path="/blog" element={<Blog />} />
-      </Routes>
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-navy-950 text-gray-300">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Services />
+              <WhyChooseUs />
+              <Process />
+              <Results />
+              <Testimonials />
+              <CTASection />
+              <Contact />
+              <Footer />
+            </>
+          } />
+          <Route path="/blog" element={<Blog />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
